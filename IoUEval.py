@@ -35,6 +35,7 @@ class IoUEval:
                 print(intersect.float())
                 print((dt.sum() + gt.sum() - intersect).float())
             else:
+                print(iou)
                 self.iou += iou
             
         self.num_images += predict.shape[0]
