@@ -1,6 +1,6 @@
 import torch
 import numpy as np
-
+import matplotlib.pyplot as plt
 # adapted from https://github.com/shelhamer/fcn.berkeleyvision.org/blob/master/score.py
 MAX_IMG_PER_BATCH = 256
 
