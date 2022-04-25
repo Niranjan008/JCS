@@ -26,7 +26,14 @@ class IoUEval:
             dt = dt > (dt.mean() * 2)
             gt = gt > 0.5
             intersect = (dt*gt).sum()
-            iou = intersect.float() / ((dt.sum() + gt.sum() - intersect).float() + 1e-8).float()
+            iou = intersect.float() / (dt.sum() + gt.sum() - intersect).float()
+            if torch.isnan(iou):
+                plt.imshow(predict[i])
+                plt.show()
+                plt.imshow(gth[i])
+                plt.show()
+                print(intersect.float())
+                print((dt.sum() + gt.sum() - intersect).float())
             self.iou += iou
             
         self.num_images += predict.shape[0]
