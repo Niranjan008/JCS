@@ -28,9 +28,9 @@ class IoUEval:
             intersect = (dt*gt).sum()
             iou = intersect.float() / (dt.sum() + gt.sum() - intersect).float()
             if torch.isnan(iou):
-                plt.imshow(predict[i])
+                plt.imshow(predict[i].cpu())
                 plt.show()
-                plt.imshow(gth[i])
+                plt.imshow(gth[i].cpu())
                 plt.show()
                 print(intersect.float())
                 print((dt.sum() + gt.sum() - intersect).float())
