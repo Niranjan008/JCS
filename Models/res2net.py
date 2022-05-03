@@ -220,7 +220,7 @@ def res2net101_v1b(pretrained=True, **kwargs):
 
     if True:
         print("loading res2net cls pretrained model")
-        pretrained = torch.load(open("./Models/res2net101_v1b_26w_4s-0812c246.pth", "rb"))
+        model.load_state_dict(torch.load(open("./Models/res2net101_v1b_26w_4s-0812c246.pth", "rb")),strict = False)
         print("loaded res2net pretrained model")
     return model
 
